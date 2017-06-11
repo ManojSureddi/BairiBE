@@ -12,4 +12,8 @@ class Game{
   static toss((request,response)=>{
     return gameService.toss(6)
   });
+
+  static distribute((request,response)=>{
+    return gameService.distributeCards(6);
+  });
 }

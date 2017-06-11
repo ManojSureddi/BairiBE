@@ -7,16 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "bluebird": "*",
-    "fstream": "^1.0.10",
-    "request": "^2.73.0",
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.5.0",
     "command-line-args": "^3.0.0",
     "command-line-usage": "^3.0.3",
-    "express": "4.x"
+    "eslint": "^4.0.0-beta.0",
+    "eslint-plugin-react": "^7.0.1",
+    "express": "4.x",
+    "express-jwt": "^5.3.0",
+    "fstream": "^1.0.10",
+    "jsonwebtoken": "^7.4.1",
+    "mongodb": "^2.2.28",
+    "mongoose": "^4.10.5",
+    "request": "^2.73.0"
   },
   "author": "Manoj Sureddi",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^4.0.0-beta.0"
+    "eslint": "^4.0.0-beta.0",
+    "eslint-plugin-react": "^7.0.1"
   }
 }

@@ -1,15 +1,20 @@
-const gameService = require("../services/game");
+"use strict";
+const gameService = require("../services/life-cycle");
 
-class Game{
-  static show((request,response)=>{
+class Game {
 
-  });
+  static distribute(request, response){
+    console.log("GameService : distribute card called");
+     response.send(gameService.distributeCards(6));
+  };
 
-  static cards((request,response)=>{
+  static cards (request, response) {
 
-  });
+  };
 
-  static toss((request,response)=>{
+  static toss(request, response){
 
-  });
+  };
 }
+
+module.exports = Game;

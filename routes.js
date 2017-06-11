@@ -1,9 +1,11 @@
 const express= require("express");
 const router= new express();
-const services=require("./services/life-cycle");
-router.use("/game",(req,res)=>{
-	res.send(services.toss(6));
-});
+const gameMiddleware=require("./middleware/game");
+router.use("/game",gameMiddleware);
+
+/*router.use("/gam",(req,res)=>{
+  res.send(services.toss(6));
+});*/
 
 router.get("/",(request,response)=>{
 

@@ -1,0 +1,53 @@
+module.exports={
+  A:{
+  name:"Ace",
+  value="A"
+},
+2:{
+  name:"two",
+  value:"2"
+},
+{
+  name:"three",
+  value:"3"
+},
+{
+  name:"four",
+  value:"4"
+},
+{
+  name:"five",
+  value:"5"
+},
+{
+  name:"six",
+  value:"6"
+},
+{
+  name:"seven",
+  value:"7"
+},
+{
+  name:"eight",
+  value:"8"
+},
+{
+  name:"nine",
+  value:"9"
+},
+{
+  name:"ten",
+  value:"10"
+},
+{
+  name:"Jockey",
+  value:"J"
+},
+{
+  name:"Queen",
+  value:"Q"
+},
+{
+  name:"King",
+  value:"K"
+}]

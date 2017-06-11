@@ -1,1 +1,1 @@
-module.exports = ["heart", "spade", "club", "diamond", "joker"];
+module.exports = ["joker", "spade", "heart", "diamond", "club"];
