@@ -1,6 +1,6 @@
 "use strict";
-const gameService = require("../services/life-cycle");
-
+const GameService = require("../services/life-cycle");
+const gameService = new GameService();
 class Game {
 
   static distribute(request, response){

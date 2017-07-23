@@ -5,12 +5,13 @@ let deck = deckStore.slice();
 
 class LifeCycle {
 
-  static init() {
-
+  init() {
+    deck = deckStore.slice();
   }
 
-  static shuffle() {
-    deck.push(deck);
+  shuffle() {
+    this.init();
+    deck = deck.concat(deck);
     let m = deck.length;
     let t, i;
     // While there remain elements to shuffle…
@@ -25,7 +26,7 @@ class LifeCycle {
     }
   }
 
-  static toss(n,user) {
+  toss(n, user) {
     let i = 0;
     let toss = [];
     let max = {};
@@ -37,10 +38,10 @@ class LifeCycle {
       deck.splice(i, 1);
       n--;
     }
-    return this.sortToss(toss,[1,2,3,4,5,6]);
+    return this.sortToss(toss, [1, 2, 3, 4, 5, 6]);
   }
 
-  static sortToss(toss,user) {
+  sortToss(toss, user) {
     let iIndex, jIndex, iSymbolIndex, jSymbolIndex;
     for (var i = 0; i < toss.length; i++) {
       for (var j = i; j < toss.length; j++) {
@@ -49,13 +50,13 @@ class LifeCycle {
 
         if (iIndex < jIndex) {
           toss[i] = [toss[j], toss[j] = toss[i]][0];
-          user[i] = [user[j], user[j]=user[i]][0];
+          user[i] = [user[j], user[j] = user[i]][0];
         } else if (iIndex === jIndex) {
           iSymbolIndex = constants.symbols.indexOf(toss[i].card.category);
           jSymbolIndex = constants.symbols.indexOf(toss[j].card.category);
           if (iSymbolIndex < jSymbolIndex) {
             toss[i] = [toss[j], toss[j] = toss[i]][0];
-            user[i] = [user[j], user[j]=user[i]][0];
+            user[i] = [user[j], user[j] = user[i]][0];
           }
           //todo: if the user cards are same then make them choose again till they are not choosing the same card
         }
@@ -65,29 +66,32 @@ class LifeCycle {
     return toss;
   }
 
-  static createArena(n) {
-    const arena = {};
+  createArena(n) {
+    const arena = [];
     for (var i = 0; i < n; i++) {
-      arena[i] = [];
+      arena[i] = { cards: [] };
     }
     return arena;
   }
 
-  static distributeCards(n) {
+  distributeCards(n) {
     console.log("distribute cards : distribute card called");
-    deck = deck.concat(deck);
-    deck = deck.splice(n, deck.length).concat(deck.splice(0, n));
+    console.log("distribute cards : method is caled with n :" + n);
 
+    // deck = deck.concat(deck);
+    this.shuffle()
+    deck = deck.splice(n, deck.length).concat(deck.splice(0, n));
+    console.log(JSON.stringify(deck))
     const arena = this.createArena(n);
     var player = 0;
-    for (var i = 0; i < n * 13; i++) {
+    for (var i = n * 13; i >= 0; i--) {
       if (player === n) {
         player = 0;
       }
-      arena[player].push(deck[i]);
+      arena[player].cards.push(deck[i]);
       player++;
+      deck.splice(i, 1);
     }
-    console.log(arena);
     return arena;
   }
 
